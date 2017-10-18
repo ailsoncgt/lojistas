@@ -1,0 +1,35 @@
+.card{
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.05);
+  border: none;
+  flex-basis: 20%;
+  border-radius: .4em;
+  padding: 1em;
+  font-size: 16px;
+  font-weight: 500;
+  position: relative;
+
+  &>*{
+    margin: .2em;
+  }
+  h1{
+    position: relative;
+    font-size: .7em;
+    .icon{
+      &>*{
+        fill: $color__lightgrey;
+      }
+      position: absolute;
+      right: 0;
+      height: 1em;
+      width: 2em;;
+    }
+  }
+  p{
+    span{
+      font-size:.8em;
+      font-weight: 400;
+    }
+    font-size: 1.2em;
+    letter-spacing: .1em;
+  }
+}

@@ -1,0 +1,40 @@
+/* FRAME */
+@import "frame";
+/* FONT AWESOME */
+@import "font-awesome/css/font-awesome";
+@import "./components/produto";
+
+#content .card:first-of-type{
+  flex-basis: 30%;
+}
+.card.large{
+
+  flex-basis: #{60% + 2*10/3};
+}
+#filtragem{
+  margin-top: 2em;
+}
+#filtros h1{
+  margin-bottom: 1em;
+}
+#filtros h1:nth-of-type(2){
+  margin-top:2em;
+}
+.selects{
+  @extend .form-control;
+  select{
+    border: none;
+  }
+}
+
+ul.produtos{
+  @extend .d-flex;
+  @extend .justify-content-between;
+
+  flex-wrap: wrap;
+  padding: 0;
+  .produto{
+    margin: .5em 0;
+    flex: 0 0 48%;
+  }
+}

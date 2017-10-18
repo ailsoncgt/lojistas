@@ -1,0 +1,34 @@
+
+button.custom{
+  @extend .d-flex, .flex-row;
+  @extend .btn;
+
+  $color: $color__pink;
+  $high: $color__pink_hightlight;
+
+  background-color: transparent;
+  border: 2px solid $color;
+  padding: .4em;
+  color: $color;
+  font-size: inherit;
+  cursor: pointer;
+  transition: color .5s, border-color .5s;
+
+  &:hover{
+    color: $high;
+    border-color: $high;
+  }
+
+  .icon{
+    $size: .8*$size__header_font;
+    height: 1em;
+    width: 1em;
+    *{
+      stroke: $color;
+      fill: $color;
+    }
+  }
+  [role="label"]{
+    margin-left: .5em;
+  }
+}

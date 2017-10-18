@@ -1,0 +1,231 @@
+/* BOOTSTRAP */
+@import "~bootstrap/scss/bootstrap";
+
+/* VARIAVEIS */
+@import "variables";
+/* CORES */
+@import 'color';
+/* BOTAO */
+@import './components/button';
+/* BOTAO */
+@import './components/card';
+
+.marcacao{
+  border: 1px solid black;
+}
+.delimitador{
+  border-color: $color__lightgrey;
+  border-width: 0;
+  border-style: solid;
+}
+.del-right{
+  @extend .delimitador;
+  border-right-width: $size__delimitador_width;
+}
+.del-left{
+  @extend .delimitador;
+  border-left-width: $size__delimitador_width;
+}
+.del-bottom{
+  @extend .delimitador;
+  border-bottom-width: $size__delimitador_width;
+}
+.whitebg{
+  background-color: white;
+}
+body{
+  background-color: $color__main_bg;
+}
+svg.icon.text{
+  height: 1em;
+  width: 1em;
+}
+#frame{
+  @extend .d-flex, .flex-row;
+  @extend .align-items-stretch;
+}
+aside.left{
+  @extend .d-flex, .flex-column;
+  @extend .align-items-center;
+  @extend .whitebg;
+
+  width: $size__left_sidebar_width;
+
+  #logo{
+    $padding: 20px;
+    padding:$padding;
+    width: $size__left_sidebar_width;
+    height: $size__header_height;
+    &>svg{
+      $size: $size__left_sidebar_width - 2*$padding;
+      width: $size;
+      height: $size;
+    }
+  }
+
+  nav{
+
+    position: relative;
+    $cursor_height: $size__left_sidebar_width/3;
+    &:before{
+      content: '';
+      display: block;
+      position: absolute;
+      background-color: $color__pink;
+      width: 8px;
+      left:-20px;
+      top: -80px;
+      transition: left, .5s, top .5s;
+      box-shadow: 0px 1px 9px 3px rgba(0, 0, 0, 0.42);
+      border-radius: 100%;
+      height: $cursor_height;
+    }
+    &.cursor:before{
+      left: -4px;
+    }
+    @for $i from 1 through 10{
+      $top: $i * $size__left_sidebar_width - ($size__left_sidebar_width + $cursor_height)/2;
+      &.item-#{$i}:before{
+        top:$top;
+      }
+    }
+
+    &>div.item{
+      @extend .d-flex;
+      @extend .align-items-center, .justify-content-center;
+      width: $size__left_sidebar_width;
+      line-height: $size__left_sidebar_width;
+      text-align: center;
+      height: $size__left_sidebar_width;
+      text-align: center;
+      line-height: $size__left_sidebar_width;
+      position: relative;
+
+      $clickable_size: 40%;
+      a{
+        position: absolute;
+        width: $clickable_size;
+        height: $clickable_size;
+      }
+      .icon{
+        cursor: pointer;
+        stroke: $color__pink;
+        fill: $color__pink;
+        width: $clickable_size;
+        height: $clickable_size;
+        margin: auto;
+        transition: fill .5s;
+
+        &:hover{
+          fill:$color__pink_hightlight;
+        }
+
+      }
+    }
+  }
+}
+#beside{
+  @extend .d-flex, .flex-column;
+  flex: 1 1 auto;
+}
+header.main{
+  @extend .d-flex, .flex-row;
+  @extend .align-items-center;
+  @extend .whitebg;
+
+  font-size: $size__header_font;
+  color: $color__header;
+  height: $size__header_height;
+
+  &>.icon{
+    $size: 2*$size__header_font;
+    margin-left: 2em;
+    margin-right: 1em;
+    height: $size;
+    width: $size;
+    flex: 0 1 auto;
+
+    *{
+      stroke: $color__header;
+      fill: $color__header;
+    }
+  }
+  &>h1{
+    flex: 1 1 auto;
+    font-weight: 400;
+    font-size:inherit;
+  }
+}
+#user-account{
+  @extend .d-flex, .flex-row;
+  @extend .align-items-center, .justify-content-around;
+
+  flex:0 0 $size__right_sidebar_width;
+  max-width: $size__right_sidebar_width;
+  font-size: $size__header_font * .5;
+  height: 100%;
+  padding: 0 1em;
+
+  &>.avatar{
+    $size: $size__header_height * .6;
+    border-radius: 100%;
+    height: $size;
+    width: $size;
+    z-index: 9999;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+aside.right{
+  @extend .whitebg;
+  padding: 1em;
+  font-size: 16px;
+  flex: 0 0 $size__right_sidebar_width;
+
+  header{
+    margin-bottom: 4em;
+
+    h2{
+      font-size: 1.6em;
+    }
+    h3{
+      font-size: 1.2em;
+      color: $color__header;
+    }
+  }
+
+  .sidebar-summary-item{
+    margin-bottom: 2em;
+
+    &:before{
+      content: '';
+      display: block;
+      width: 100%;
+      height: 5px;
+      background-color: $color__pink;
+      margin-bottom: .5em;
+    }
+    h4{
+      font-size: .8em;
+      color: $color__header;
+
+    }
+    p{
+      margin: 0;
+      padding: 0;
+    }
+    a{
+      color: $color__pink;
+      font-size: .8em;
+      .icon *{
+        stroke: $color__pink;
+        fill: $color__pink;
+      }
+    }
+  }
+}
+#content{
+  flex: 1 1 100%;
+  padding: 3em;
+}

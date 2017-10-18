@@ -1,0 +1,39 @@
+.produto{
+  @extend .d-flex;
+  $padding: 20px;
+  $size: 1.4*$size__header_height;
+
+  font-size: inherit;
+  list-style: none;
+  padding: 20px;
+  border: 1px solid #{$color__lightgrey};
+  height: $size;
+  .preview{
+    border:1px solid black;
+    $height: $size - 2*$padding;
+    height:$height;
+    width: $height*.7;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .info{
+    @extend .d-flex, .flex-column;
+    @extend .justify-content-between;
+    margin-left: $padding;
+
+    h1{
+      margin: 0;
+      font-size: 1em;
+    }
+    h2{
+      margin: 0;
+      font-size: .8em;
+    }
+    h3{
+      margin: 0;
+      margin-top: .6em;
+      font-size: .8em;
+    }
+  }
+}
